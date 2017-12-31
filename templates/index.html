@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Partner Onboarding</title>
+          <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheet.css')}}">
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script type="text/javascript">
+
+          </script>
+     </head>
+     <body>
+          <h1>ONBOARDING</h1>
+          <img src="{{url_for('static', filename='images/TC_logo.png')}}">
+          <hr>
+          <div class="error_messages">
+               {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                         {% for message in messages %}
+                              <p>{{message}}</p>
+                         {% endfor %}
+                    {% endif %}
+               {% endwith %}
+          </div>
+          <h3>Register:</h3>
+          <fieldset>
+               <form method="post" action="/process">
+                    <input type="hidden" name="action" value="register">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                    <label for="company_name">Company Name:</label>
+                    <input type="company_name" name="company_name">
+                    <p>Select a Partner Type:</p>
+                    <label for="gift_card_partner">Gift Card Partner</label>
+                    <input type="radio" name="partner_type" value="gift_card_partner">
+                    <label for="non_profit_partner">Non-Profit Partner</label>
+                    <input type="radio" name="partner_type" value="non_profit_partner">
+                    <label for="other_partner_type">Other Partner Type</label>
+                    <input type="radio" name="partner_type" value="other_parther_type">
+                    <br>
+                    <label for="email">Email Address:</label>
+                    <input type="text" name="email">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                    <input type="submit" value="Register">
+               </form>
+          </fieldset>
+          <h3>Login:</h3>
+          <fieldset>
+               <form method="post" action="/process">
+                    <input type="hidden" name="action" value="login">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                    <input type="submit" value="Login">
+               </form>
+          </fieldset>
+     </body>
+</html>

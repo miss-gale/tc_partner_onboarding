@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>New Partner Intake Form</title>
+          <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheet.css')}}">
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script type="text/javascript">
+
+          </script>
+     </head>
+     <body>
+          <h1>SUBMIT FORM</h1>
+          <img src="{{url_for('static', filename='images/TC_logo.png')}}">
+          <hr>
+          <h2>Please Review the Details Below:</h2>
+          <div class="results">
+               <form action="/mail_form" method="POST">
+                    <h3>PRODUCT INFORMATION</h3>
+                    <hr>
+                    <p>Reward Name:  {{ current_product['reward_name'] }}</p><br>
+                    <p>Reward Type:  {{ current_product['reward_type'] }}</p><br>
+                    <p>Currency:  {{ current_product['currency'] }}</p><br>
+                    <p>Denomination Type:  {{ current_product['denom_type'] }}</p><br>
+                    <p>Minimum Load Value:  {{ current_product['min_load_value'] }}</p><br>
+                    <p>Maximum Load Value:  {{ current_product['max_load_value'] }}</p><br>
+                    <p>Available Denominations:  {{ current_product['fixed_amounts'] }}</p><br>
+                    <p>Expiration Period:  {{ current_product['expiration_period'] }}</p><br>
+                    <br>
+                    <h3>CODE DETAILS</h3>
+                    <hr>
+                    <p>Code Format:  {{ current_code_details['code_format'] }}</p><br>
+                    <p>Code Label:  {{ current_code_details['code_label'] }}</p><br>
+                    <p>Code Sample:  {{ current_code_details['code_sample'] }}</p><br>
+                    <br>
+                    <h3>BRAND GUIDELINES</h3>
+                    <hr>
+                    <p>Short Description:  {{ current_guidelines['short_description'] }}</p><br>
+                    <p>Long Description:  {{ current_guidelines['long_description'] }}</p><br>
+                    <p>Redemption Types:  {{ current_guidelines['redemption_types'] }}</p><br>
+                    <p>Redemption Instructions:  {{ current_guidelines['redemption_instructions'] }}</p><br>
+                    <p>Terms and Conditions:  {{ current_guidelines['terms_conditions'] }}</p><br>
+                    <p>Promotional Disclaimer:  {{ current_guidelines['disclaimer'] }}</p><br>
+                    <input type="submit" value="Submit">
+               </form>
+               <form action="/">
+                    <p>Want to make changes?</p>
+                    <input type="submit" value="Reset">
+               </form>
+          </div>
+     </body>
+</html>

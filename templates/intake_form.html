@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>New Partner Intake Form</title>
+          <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheet.css')}}">
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script type="text/javascript">
+
+          </script>
+     </head>
+     <body>
+          <h1>INTAKE FORM</h1>
+          <img src="{{url_for('static', filename='images/TC_logo.png')}}">
+          <div class="error_messages">
+               {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                         {% for message in messages %}
+                              <p>{{message}}</p>
+                         {% endfor %}
+                    {% endif %}
+               {% endwith %}
+          </div>
+          <fieldset>
+               <div>
+                    <h2>Welcome, {{ current_user['first_name'] }} {{ current_user['last_name']}} of {{ current_company['company_name'] }}!</h2>
+                    <hr>
+               </div>
+               <form method="post" action="/submit">
+                    <h3>Basic Information</h3>
+                    <hr>
+                    <label for="reward_name">Reward Name:</label>
+                    <input type="text" name="reward_name">
+                    <br>
+                    <p>Type of Reward (select one):</p>
+                    <label for="egift_card">E-Gift Card</label>
+                    <input type="radio" id="egift_card" name="reward_type" value="E-Gift Card">
+                    <label for="donation">Non-Profit Donation</label>
+                    <input type="radio" id="donation" name="reward_type" value="Donation">
+                    <label for="promo_code">Promotional Code</label>
+                    <input type="radio" id="promo_code" name="reward_type" value="Promo Code">
+                    <br>
+                    <h3>Code Details</h3>
+                    <hr>
+                    <p>Code Format (select all that apply):</p>
+                    <label for="card_number">Card Number</label>
+                    <input type="checkbox" id="card_number" name="code_format" value="Card Number">
+                    <label for="pin">Pin</label>
+                    <input type="checkbox" id="pin" name="code_format" value="Pin">
+                    <label for="hosted_link">Hosted Link</label>
+                    <input type="checkbox" id="hosted_link" name="code_format" value="Hosted Link">
+                    <label for="no_code_format">Not Applicable</label>
+                    <input type="checkbox" id="no_code_format" name="code_format">
+                    <label for="code_label">Code Label:</label>
+                    <input type="text" id="code_label" name="code_label">
+                    <label for="code_sample">Provide a Sample Code:</label>
+                    <input type="text" id="code_sample" name="code_sample">
+                    <br>
+                    <label for="currency">Currency (enter all that apply):</label>
+                    <input type="text" name="currency">
+                    <br>
+                    <p>Denomination Type:</p>
+                    <label for="variable_range">Variable Range</label>
+                    <input type="checkbox" id="variable_range" name="denom_type" value="Variable Range">
+                    <label for="fixed_denominations">Fixed Denominations</label>
+                    <input type="checkbox" id="fixed_denominations" name="denom_type" value="Fixed Denominations">
+                    <br>
+                    <label for="min_load_value">Minimum Load Amount:</label>
+                    <input type="text" name="min_load_value">
+                    <label for="max_load_value">Maximum Load Amount:</label>
+                    <input type="text" name="max_load_value">
+                    <br>
+                    <label for="fixed_amounts">Fixed Amounts:</label>
+                    <input type="text" name="fixed_amounts">
+                    <label for="expiration_period">Expiration Period:</label>
+                    <input type="text" name="expiration_period">
+                    <h3>Marketing Gudielines:</h3>
+                    <hr>
+                    <label for="short_description">Short Description:</label>
+                    <input type="textarea" name="short_description">
+                    <label for="long_description">Long Description:</label>
+                    <input type="textarea" name="long_description">
+                    <p>Redemption Types (select all that apply):</p>
+                    <label for="in_store">In Store</label>
+                    <input type="checkbox" id="in_store" name="redemption_types" value="In Store">
+                    <label for="online">Online</label>
+                    <input type="checkbox" id="online" name="redemption_types" value="Online">
+                    <label for="mobile_app">Mobile App</label>
+                    <input type="checkbox" id="mobile_app" name="redemption_types" value="Mobile App">
+                    <br>
+                    <label for="redemption_instructions">Redemption Instructions:</label>
+                    <input type="textarea" name="redemption_instructions">
+                    <label for="terms_conditions">Terms and Conditions:</label>
+                    <input type="textarea" name="terms_conditions">
+                    <br>
+                    <label for="promotional_disclaimer">Promotional Disclaimer:</label>
+                    <input type="textarea" name="promotional_disclaimer" placeholder="*[Your Company Name] is not a sponsor of the rewards or otherwise affiliated with this reward program. The logos and other identifying marks attached are trademarks of and owned by each represented company and/or its affiliates. Please visit each company's website for additional terms and conditions.">
+                    <hr>
+                    <input type="submit" value="Submit">
+               </form>
+               <hr>
+               <form method="post" action="/log_out">
+                    <h4>Want to take a break and finish later?</h4>
+                    <input type="submit" value="Log Out">
+               </form>
+          </fieldset>
+     </body>
+</html>

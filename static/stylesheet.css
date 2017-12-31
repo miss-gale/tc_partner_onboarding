@@ -1,0 +1,51 @@
+*{
+     margin: 5px;
+     padding: 5px;
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body{
+     background-color: #f57c37;
+     color: white;
+     width: 875px;
+}
+
+img{
+     display: inline-block;
+     vertical-align: top;
+     height: 25px;
+     margin-left: 500px;
+}
+
+hr{
+     margin: 0px;
+     padding: 0px;
+}
+
+h1{
+     display: inline-block;
+     vertical-align: top;
+}
+
+h3{
+     margin: 10px 0px;
+}
+
+form{
+     background-color: #666666;
+}
+
+input{
+     background-color: white;
+     color: darkgrey;
+}
+
+.error_messages{
+     background-color: white;
+     color: #008080;
+     padding: 0px;
+}
+
+p{
+     display: inline-block;
+}
